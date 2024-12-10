@@ -2,7 +2,7 @@
 
 {{- /* CodeIT theme version detection */ -}}
 {{- $VERSION := "0.2.X" -}}
-{{- if eq .Site .Sites.First -}}
+{{- if eq .Site .Sites.Default -}}
     {{- if not .Site.Params.version -}}
         {{- errorf "Configuration Error 配置文件错误\n\nYou haven't configured the CodeIT version param correctly yet. See https://codeit.suntprogramator.dev/theme-documentation-basics/#basic-configuration\n你还没有正确配置 CodeIT 的版本参数. 参考 https://hugoCodeIT.com/zh-cn/theme-documentation-basics/#basic-configuration\n" -}}
     {{- else if ne .Site.Params.version $VERSION -}}
@@ -31,7 +31,7 @@
     {{- else if eq .Params.comment false -}}
         {{- .Scratch.Set "comment" dict -}}
     {{- end -}}
-{{- else if eq .Site .Sites.First -}}
+{{- else if eq .Site .Sites.Default -}}
     {{- warnf "\n\nCurrent environment is \"development\". The \"comment system\", \"CDN\" and \"fingerprint\" will be disabled.\n当前运行环境是 \"development\". \"评论系统\", \"CDN\" 和 \"fingerprint\" 不会启用.\n" -}}
 {{- end -}}
 

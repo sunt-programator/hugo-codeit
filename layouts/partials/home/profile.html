@@ -7,7 +7,7 @@
     {{- if $avatar -}}
         <div class="home-avatar">
             {{- $menus := $.Site.Menus.main | default slice -}}
-            {{- $avatarAlt := $profile.avatarAlt | default .Site.Author.name -}}
+            {{- $avatarAlt := $profile.avatarAlt | default .Site.Params.Author.name -}}
             {{- with index $menus 0 -}}
                 {{- $url := .URL | relLangURL -}}
                 {{- with .Page -}}
